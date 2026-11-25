@@ -1,0 +1,116 @@
+{
+ "rows": [
+  {
+   "group": "공고 찾기",
+   "name": "기업마당",
+   "use": "모든 부처 지원사업 공고 통합 검색, 관심분야 메일 알림",
+   "cost": "무료",
+   "link": "https://www.bizinfo.go.kr"
+  },
+  {
+   "group": "공고 찾기",
+   "name": "K-Startup",
+   "use": "창업지원사업(초기창업패키지 등) 공고·신청",
+   "cost": "무료",
+   "link": "https://www.k-startup.go.kr"
+  },
+  {
+   "group": "공고 찾기",
+   "name": "소상공인24",
+   "use": "소상공인확인서 발급, 소진공 지원사업 신청",
+   "cost": "무료",
+   "link": "https://www.sbiz24.kr"
+  },
+  {
+   "group": "공고 찾기",
+   "name": "수출바우처",
+   "use": "수출바우처 공고·수행기관 등록",
+   "cost": "무료",
+   "link": "https://www.exportvoucher.com"
+  },
+  {
+   "group": "공고 찾기",
+   "name": "판판대로",
+   "use": "소상공인 온라인 판로 지원 신청",
+   "cost": "무료",
+   "link": "https://fanfandaero.kr"
+  },
+  {
+   "group": "해외진출",
+   "name": "트레이드내비",
+   "use": "국가별 수출 규제·관세·HS코드 정보",
+   "cost": "무료",
+   "link": "https://www.tradenavi.or.kr"
+  },
+  {
+   "group": "해외진출",
+   "name": "KOTRA 해외시장뉴스",
+   "use": "중화권·동남아 무역관 시장 리포트",
+   "cost": "무료",
+   "link": "https://dream.kotra.or.kr"
+  },
+  {
+   "group": "해외진출",
+   "name": "고비즈코리아",
+   "use": "중기 B2B 수출 플랫폼, 바이어 매칭",
+   "cost": "무료",
+   "link": "https://kr.gobizkorea.com"
+  },
+  {
+   "group": "이커머스",
+   "name": "쇼피코리아",
+   "use": "쇼피 입점·셀러 교육·정부지원 연계 공지",
+   "cost": "무료",
+   "link": "https://shopee.kr"
+  },
+  {
+   "group": "이커머스",
+   "name": "라자다 셀러센터",
+   "use": "라자다 입점·운영",
+   "cost": "무료(수수료)",
+   "link": "https://www.lazada.com"
+  },
+  {
+   "group": "유입·마케팅",
+   "name": "네이버 서치어드바이저",
+   "use": "홈페이지를 네이버 검색에 등록 (오늘 할 일)",
+   "cost": "무료",
+   "link": "https://searchadvisor.naver.com"
+  },
+  {
+   "group": "유입·마케팅",
+   "name": "구글 서치콘솔",
+   "use": "홈페이지를 구글 검색에 등록",
+   "cost": "무료",
+   "link": "https://search.google.com/search-console"
+  },
+  {
+   "group": "유입·마케팅",
+   "name": "카카오톡 채널 관리자",
+   "use": "상담 채널·리드 수집·메시지 발송",
+   "cost": "무료(발송 유료)",
+   "link": "https://center-pf.kakao.com"
+  },
+  {
+   "group": "판매 채널",
+   "name": "크몽 전문가센터",
+   "use": "AI 자동화 상품 등록·가격표·리뷰 관리",
+   "cost": "판매수수료",
+   "link": "https://kmong.com"
+  },
+  {
+   "group": "운영",
+   "name": "홈택스",
+   "use": "사업자등록·부가세·세금계산서",
+   "cost": "무료",
+   "link": "https://www.hometax.go.kr"
+  },
+  {
+   "group": "운영",
+   "name": "Claude Code",
+   "use": "무역서류·제안서·상품등록 자동화 엔진",
+   "cost": "구독",
+   "link": "https://claude.com/claude-code"
+  }
+ ]
+}

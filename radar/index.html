@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>제로투원 지원사업 레이더</title>
+<meta name="description" content="중화권·동남아 진출, 쇼피·라자다 이커머스 1인 기업에 맞는 정부지원사업과 사업 도구 — 매일 오전 8시 갱신">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f8fa; --panel: #ffffff; --fg: #17202b; --muted: #5d6877; --line: #e1e5eb;
+    --accent: #1f3864; --bad: #c0392b; --warn: #b9770e; --ok: #1e7d4f;
+    --sans: "Noto Sans KR", system-ui, sans-serif; --serif: "Noto Serif KR", Georgia, serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #11161d; --panel: #18202a; --fg: #e8edf3; --muted: #9aa6b5; --line: #2a3441;
+      --accent: #8fb0e8; --bad: #ff7b6b; --warn: #f0b44c; --ok: #5cc98f; color-scheme: dark; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 15px; line-height: 1.6; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 16px 56px; display: flex; flex-direction: column; gap: 36px; }
+  header .brand { font-size: 13px; color: var(--accent); font-weight: 700; letter-spacing: .04em; text-decoration: none; }
+  h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(26px, 4vw, 36px); margin: 6px 0 10px; }
+  .lede { color: var(--muted); margin: 0; max-width: 70ch; }
+  .lede b { color: var(--fg); font-variant-numeric: tabular-nums; }
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+  .tile { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; }
+  .tile .k { font-size: 12px; color: var(--muted); }
+  .tile .v { font-family: var(--serif); font-size: 28px; font-variant-numeric: tabular-nums; }
+  .tile.hot .v { color: var(--bad); }
+  h2 { font-size: 19px; margin: 0 0 6px; }
+  .sub { color: var(--muted); font-size: 13px; margin: 0 0 14px; }
+  .todo { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .todo li { display: grid; grid-template-columns: 5.5em 1fr; gap: 12px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+  .todo li > div { min-width: 0; }
+  .todo .d { font-weight: 700; color: var(--bad); font-variant-numeric: tabular-nums; }
+  .todo .d.later { color: var(--warn); }
+  .todo .t { font-weight: 500; }
+  .todo .a { color: var(--muted); font-size: 13px; }
+  .bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+  select { font: inherit; font-size: 14px; padding: 6px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); color: var(--fg); }
+  .tw { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 820px; }
+  th { text-align: left; font-weight: 500; color: var(--muted); padding: 10px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  td { padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr:last-child td { border-bottom: 0; }
+  td.num { white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .ttl { font-weight: 500; font-size: 14px; }
+  .ag { color: var(--muted); }
+  .pill { display: inline-block; padding: 0 8px; border-radius: 999px; border: 1px solid currentColor; font-size: 12px; white-space: nowrap; }
+  .now { color: var(--bad); } .soon { color: var(--warn); } .plan { color: var(--ok); } .always { color: var(--muted); }
+  .f상 { color: var(--bad); font-weight: 700; } .f중 { color: var(--warn); } .f하 { color: var(--muted); }
+  a { color: inherit; text-underline-offset: 2px; }
+  a:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; }
+  .grp { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; min-width: 0; }
+  .grp h3 { margin: 0 0 8px; font-size: 15px; }
+  .grp ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 13px; }
+  .grp .c { color: var(--muted); }
+  footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line); padding-top: 16px; }
+  .err { color: var(--bad); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="https://karma7000.github.io">ZERO TO ONE COMPANY</a>
+    <h1>제로투원 지원사업 레이더</h1>
+    <p class="lede">중화권·동남아 진출과 쇼피·라자다 이커머스를 하는 1인 기업·소상공인에게 맞는 정부지원사업과 사업 도구 모음입니다. 지금 챙길 일 <b id="l-urgent">—</b>건, 적합도 '상' <b id="l-high">—</b>건 · 마지막 점검 <b id="l-checked">—</b> (매일 오전 8시 갱신)</p>
+  </header>
+
+  <section class="tiles" aria-label="요약">
+    <div class="tile hot"><div class="k">지금 챙길 일</div><div class="v" id="t-urgent">—</div></div>
+    <div class="tile"><div class="k">적합도 '상' 공고</div><div class="v" id="t-high">—</div></div>
+    <div class="tile"><div class="k">추적 중인 사업</div><div class="v" id="t-total">—</div></div>
+    <div class="tile"><div class="k">가장 가까운 마감</div><div class="v" id="t-next">—</div></div>
+  </section>
+
+  <section>
+    <h2>지금 바로 할 일</h2>
+    <p class="sub">마감이 가깝거나 지금 준비해야 하는 항목입니다.</p>
+    <ul class="todo" id="todo"></ul>
+  </section>
+
+  <section>
+    <h2>정부지원사업 전체</h2>
+    <div class="bar">
+      <select id="cat" aria-label="분류"><option value="">분류 전체</option></select>
+      <select id="fit" aria-label="적합도"><option value="">적합도 전체</option><option>상</option><option>중</option><option>하</option></select>
+    </div>
+    <div class="tw">
+      <table>
+        <thead><tr><th>상태</th><th>사업명 / 기관</th><th>적합도</th><th>D-day</th><th>일정</th><th>지원 내용</th><th>할 일</th></tr></thead>
+        <tbody id="rows"><tr><td colspan="7">불러오는 중…</td></tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>사업 진행 도구 & 정보</h2>
+    <p class="sub">공고 확인, 해외진출 정보, 유입·판매 채널, 운영 도구.</p>
+    <div class="tools" id="tools"></div>
+  </section>
+
+  <footer>일정에 '예상'이 붙은 항목은 전년도 공고 시기를 바탕으로 한 추정입니다. 신청 전에 각 기관 공고 원문을 꼭 확인하세요. 적합도는 제로투원 사업(중화권·동남아 진출 컨설팅, AI 자동화, 쇼피·라자다 운영) 기준 판단입니다. · <a href="https://karma7000.github.io/contact.html">제로투원 상담 문의</a></footer>
+</div>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+  const safe = (u) => /^https?:\/\//.test(u || '') ? u : null;
+  const link = (text, href) => { const u = safe(href); if (!u) return document.createTextNode(text); const a = el('a', null, text); a.href = u; a.target = '_blank'; a.rel = 'noopener'; return a; };
+  const now = new Date(); const today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+  const dday = (d) => d ? Math.round((Date.parse(d) - today) / 86400000) : null;
+  const fmt = (n) => n == null ? '' : n > 0 ? 'D-' + n : n === 0 ? 'D-DAY' : '마감';
+  const pill = (s) => (s === '지금' || s === '접수중') ? 'now' : s === '접수예정' ? 'soon' : s === '공고예정' ? 'plan' : 'always';
+  const ORDER = { '지금': 0, '접수중': 1, '접수예정': 2, '공고예정': 3, '수시': 4, '상시': 5, '미확정': 6 };
+  const FIT = { '상': 0, '중': 1, '하': 2 };
+  const v = '?v=' + new Date().toISOString().slice(0, 10);
+  let data = [];
+
+  function table() {
+    const c = $('cat').value, f = $('fit').value, tb = $('rows');
+    tb.replaceChildren();
+    const rows = data.filter((r) => (!c || r.category === c) && (!f || r.fit === f))
+      .sort((a, b) => (ORDER[a.status] ?? 9) - (ORDER[b.status] ?? 9) || (FIT[a.fit] ?? 9) - (FIT[b.fit] ?? 9));
+    if (!rows.length) { const tr = el('tr'); const td = el('td', null, '조건에 맞는 사업이 없습니다.'); td.colSpan = 7; tr.append(td); tb.append(tr); return; }
+    for (const r of rows) {
+      const tr = el('tr');
+      const s = el('td'); s.append(el('span', 'pill ' + pill(r.status), r.status));
+      const t = el('td'); const tt = el('div', 'ttl'); tt.append(link(r.title, r.link)); t.append(tt, el('div', 'ag', r.agency + ' · ' + r.category));
+      tr.append(s, t, el('td', 'f' + r.fit, r.fit), el('td', 'num', fmt(dday(r.deadline))), el('td', null, r.expected), el('td', null, r.amount), el('td', null, r.action));
+      tb.append(tr);
+    }
+  }
+
+  fetch('programs.json' + v).then((r) => r.json()).then((j) => {
+    data = j.rows || [];
+    const hot = data.filter((r) => r.kakao === 'Y');
+    const dl = data.map((r) => r.deadline).filter(Boolean).sort();
+    const ck = data.map((r) => r.checked).filter(Boolean).sort();
+    const set = (ids, val) => ids.forEach((i) => { $(i).textContent = val; });
+    set(['l-urgent', 't-urgent'], hot.length);
+    set(['l-high', 't-high'], data.filter((r) => r.fit === '상').length);
+    $('t-total').textContent = data.length;
+    $('t-next').textContent = dl[0] || '없음';
+    $('l-checked').textContent = ck[ck.length - 1] || '—';
+    const ul = $('todo');
+    hot.sort((a, b) => (a.deadline || '9999') < (b.deadline || '9999') ? -1 : 1).forEach((r) => {
+      const li = el('li'); const n = dday(r.deadline);
+      const d = el('span', 'd' + (n == null || n > 14 ? ' later' : ''), n == null ? r.status : fmt(n));
+      const box = el('div'); const t = el('div', 't'); t.append(link(r.title, r.link)); box.append(t, el('div', 'a', r.action));
+      li.append(d, box); ul.append(li);
+    });
+    if (!hot.length) ul.append(el('li', null, '지금 급한 일은 없습니다.'));
+    [...new Set(data.map((r) => r.category))].forEach((c) => $('cat').append(new Option(c, c)));
+    $('cat').onchange = table; $('fit').onchange = table;
+    table();
+  }).catch(() => { $('rows').replaceChildren(); const tr = el('tr'); const td = el('td', 'err', '공고 데이터를 불러오지 못했습니다. 잠시 후 새로고침해 주세요.'); td.colSpan = 7; tr.append(td); $('rows').append(tr); });
+
+  fetch('tools.json' + v).then((r) => r.json()).then((j) => {
+    const g = new Map();
+    for (const r of j.rows || []) { if (!g.has(r.group)) g.set(r.group, []); g.get(r.group).push(r); }
+    for (const [name, items] of g) {
+      const card = el('div', 'grp'); card.append(el('h3', null, name));
+      const ul = el('ul');
+      for (const r of items) { const li = el('li'); li.append(link(r.name, r.link), el('span', 'c', ' · ' + r.use + ' (' + r.cost + ')')); ul.append(li); }
+      card.append(ul); $('tools').append(card);
+    }
+  }).catch(() => { $('tools').append(el('p', 'err', '도구 목록을 불러오지 못했습니다.')); });
+})();
+</script>
+</body>
+</html>
